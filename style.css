@@ -1,6 +1,7 @@
 body {
     width: 100%;
     margin: 0%;
+    user-select: none;
 }
 .wrapper {
     display: flex;
@@ -11,6 +12,47 @@ body {
     width: 20%;
     height: 100%;
     background-color: orange;
+}
+.filter-box {
+    width: 100%;
+    height: 70%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.filter-cont-box {
+    width: 30%;
+    height: 60%;
+    background-color: orange;
+}
+.filter {
+    width: 100%;
+    height: 25%;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+.timer-cont {
+    width: 100%;
+    height: 30%;
+    /* background-color: gray; */
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.timer-box {
+    width: 100%;
+    height: 40%;
+    /* background-color: orchid; */
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.timer-box p {
+    font-size: 4vmin;
+    color: white;
 }
 .camera-cont {
     width: 60%;
@@ -44,14 +86,12 @@ body {
     align-items: center;
 }
 .fa-photo-film {
-    font-size: 3.5rem;
+    font-size: 7vh;
     color: white;
 }
 .capture, .record {
-    /* width: 5rem;
-    height: 5rem; */
     width: 25%;
-    height: 18%;
+    height: 19%;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -61,7 +101,7 @@ body {
 .capture-circle, .record-circle {
     width: 50%;
     height: 50%;
-    border: 0.8rem solid black;
+    border: 1.75vh solid black;
     border-radius: 50%;
 }
 .capture-circle {
@@ -70,11 +110,6 @@ body {
 .record-circle {
     background-color: white;
 }
-/* .footer {
-    width: 100%;
-    height: 4rem;
-    background-color: blue;
-} */
 .footer {
     width: 100%;
     height: 4rem;
