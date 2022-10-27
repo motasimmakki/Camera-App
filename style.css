@@ -70,7 +70,7 @@ body {
 .timer-box p {
     font-size: 4vmin;
     color: white;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 .camera-cont {
     width: 60%;
@@ -115,6 +115,9 @@ body {
     font-size: 7vh;
     color: white;
 }
+.fa-photo-film:hover {
+    cursor: pointer;
+}
 .capture, .record {
     width: 25%;
     height: 19%;
@@ -131,10 +134,33 @@ body {
     border-radius: 50%;
 }
 .capture-circle {
-    background-color: red;
+    background-color: white;
 }
 .record-circle {
-    background-color: white;
+    background-color: red;
+}
+.scale-capture, .scale-record {
+    animation-name: scale-capture;
+    animation-duration: 1s;
+}
+.scale-record {
+    animation-iteration-count: infinite;
+}
+@keyframes scale-capture {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes scale-record {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 .footer {
     width: 100%;
