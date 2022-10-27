@@ -32,6 +32,22 @@ body {
     height: 25%;
     border: 1px solid black;
     box-sizing: border-box;
+    background-image: url("https://picsum.photos/seed/picsum/200/300");
+    background-position: 0px 75px;
+    background-size: cover;
+    background-blend-mode: color-burn;
+}
+.brown {
+    background-color: #ffa50052;
+}
+.orange {
+    background-color: #a52a2a59;
+}
+.pink {
+    background-color: #ffc0cb57;
+}
+.transparent {
+    background-color: transparent;
 }
 .timer-cont {
     width: 100%;
@@ -54,6 +70,7 @@ body {
 .timer-box p {
     font-size: 4vmin;
     color: white;
+    /* visibility: hidden; */
 }
 .camera-cont {
     width: 60%;
