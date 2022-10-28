@@ -38,16 +38,17 @@ body {
     background-blend-mode: color-burn;
 }
 .brown {
-    background-color: #ffa50052;
+    background-color: #a52a2a59;
 }
 .orange {
-    background-color: #a52a2a59;
+    background-color: #ffa50052;
 }
 .pink {
     background-color: #ffc0cb57;
 }
 .transparent {
     background-color: transparent;
+    border: 2px solid red;
 }
 .timer-cont {
     width: 100%;

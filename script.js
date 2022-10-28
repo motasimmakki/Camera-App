@@ -3,6 +3,8 @@ let recordBtn = document.querySelector(".record-circle");
 let captureBtn = document.querySelector(".capture-circle");
 let timerBox = document.querySelector(".timer-box p");
 let video = document.querySelector("video");
+let allFilters = document.querySelectorAll(".filter");
+let filterColor = "transparent";
 let mediaRecorder;
 
 // This will store the video recording stream.
@@ -87,6 +89,9 @@ captureBtn.addEventListener("click", function() {
         canvas.height = video.videoHeight;
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
+        ctx.fillStyle = filterColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
         // Auto Download the image.
         let image = canvas.toDataURL("image/jpeg");
         let a = document.createElement("a");
@@ -99,3 +104,11 @@ captureBtn.addEventListener("click", function() {
         }, 1000);
     }
 });
+
+allFilters.forEach((currFilter) => {
+    currFilter.addEventListener("click", function() {
+        filterColor = getComputedStyle(currFilter).getPropertyValue("background-color");
+        allFilters.forEach(filter => filter.style.border = "none");
+        currFilter.style.border = "2px solid red";
+    });
+})
