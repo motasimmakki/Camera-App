@@ -50,7 +50,9 @@ recordBtn.addEventListener("click", function() {
     isRecording = !isRecording;
 });
 
+let timerID;
 function startTimer() {
+    let counter = 1;
     function displayTimer() {
         let totalSeconds = counter;
 
@@ -67,17 +69,31 @@ function startTimer() {
         timerBox.innerText = `${hours}:${mins}:${secs}`;
         counter += 1;
     };
-    setInterval(displayTimer, 1000);
-    counter = 1;
+    timerID = setInterval(displayTimer, 1000);
 }
 
 function stopTimer() {
-    
+    clearInterval(timerID); 
+    timerBox.innerHTML = "00:00:00";
 }
 
 captureBtn.addEventListener("click", function() {
     if(!isRecording) {
         captureBtn.classList.add("scale-capture");
+        // Capturing image using canvas.
+        let canvas = document.createElement("canvas");
+        let ctx = canvas.getContext("2d");
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // Auto Download the image.
+        let image = canvas.toDataURL("image/jpeg");
+        let a = document.createElement("a");
+        a.href = image;
+        a.download = "myPic.jpeg"
+        a.click();
+
         setTimeout(() => {
             captureBtn.classList.remove("scale-capture");
         }, 1000);
