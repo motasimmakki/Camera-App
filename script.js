@@ -5,7 +5,7 @@ let timerBox = document.querySelector(".timer-box p");
 let video = document.querySelector(".camera-view");
 let filterLayer = document.querySelector(".filter-layer");
 let allFilters = document.querySelectorAll(".filter");
-let filterDiv = document.querySelector(".filter-layer");
+let filterCont = document.querySelector(".filter-layer");
 let filterColor = "transparent";
 let mediaRecorder;
 
@@ -17,7 +17,7 @@ let constraints = {
 }
 navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     video.srcObject = stream;
-    filterDiv.style.aspectRatio = stream.getVideoTracks()[0].getSettings().aspectRatio;
+    filterCont.style.aspectRatio = stream.getVideoTracks()[0].getSettings().aspectRatio;
     mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.addEventListener("start", () => {
         console.log("Start Recording. . .");
@@ -114,5 +114,6 @@ allFilters.forEach((currFilter) => {
         allFilters.forEach(filter => filter.style.border = "none");
         // Need to test.
         filterLayer.style.backgroundColor = filterColor;
+        currFilter.style.border = "2px solid red";
     });
 })
