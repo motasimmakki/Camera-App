@@ -82,8 +82,16 @@ body {
 }
 .view-area {
     width: 100%;
-    height: 80%;
-    background-color: cornsilk;
+    height: 90%;
+    /* background-color: cornsilk; */
+    background-color: black;
+}
+.camera-view {
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid red; */
+    /* object-fit: fill; */
+    box-sizing: border-box;
 }
 .operations-cont {
     width: 20%;
