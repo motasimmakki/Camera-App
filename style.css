@@ -86,13 +86,24 @@ body {
     height: 90%;
     /* background-color: cornsilk; */
     background-color: black;
+    position: relative;
+}
+.view-area>* {
+    position: absolute;
+}
+.filter-layer {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+    overflow: hidden;
 }
 .camera-view {
     width: 100%;
     height: 100%;
-    /* border: 2px solid red; */
-    /* object-fit: fill; */
     box-sizing: border-box;
+    z-index: 1;
+    /* object-fit: fill; */
 }
 .operations-cont {
     width: 20%;

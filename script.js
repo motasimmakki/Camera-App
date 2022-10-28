@@ -2,7 +2,8 @@
 let recordBtn = document.querySelector(".record-circle");
 let captureBtn = document.querySelector(".capture-circle");
 let timerBox = document.querySelector(".timer-box p");
-let video = document.querySelector("video");
+let video = document.querySelector(".camera-view");
+let filterLayer = document.querySelector(".filter-layer");
 let allFilters = document.querySelectorAll(".filter");
 let filterColor = "transparent";
 let mediaRecorder;
@@ -107,8 +108,12 @@ captureBtn.addEventListener("click", function() {
 
 allFilters.forEach((currFilter) => {
     currFilter.addEventListener("click", function() {
+        let filterDiv = document.querySelector(".filter-layer");
+        filterDiv.style.width = video.videoWidth;
+        filterDiv.style.height = video.videoHeight;
         filterColor = getComputedStyle(currFilter).getPropertyValue("background-color");
         allFilters.forEach(filter => filter.style.border = "none");
-        currFilter.style.border = "2px solid red";
+        // Need to test.
+        filterLayer.style.backgroundColor = filterColor;
     });
 })
