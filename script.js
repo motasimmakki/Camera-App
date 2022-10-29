@@ -1,14 +1,16 @@
 // alert("Working . . .");
-let recordBtn = document.querySelector(".record-circle");
-let captureBtn = document.querySelector(".capture-circle");
-let timerBox = document.querySelector(".timer-box p");
-let video = document.querySelector(".camera-view");
-let filterLayer = document.querySelector(".filter-layer");
-let allFilters = document.querySelectorAll(".filter");
-let filterCont = document.querySelector(".filter-layer");
-let galleryBtn = document.querySelector(".fa-photo-film");
+const recordBtn = document.querySelector(".record-circle");
+const captureBtn = document.querySelector(".capture-circle");
+const timerBox = document.querySelector(".timer-box p");
+const video = document.querySelector(".camera-view");
+const filterLayer = document.querySelector(".filter-layer");
+const allFilters = document.querySelectorAll(".filter");
+const filterCont = document.querySelector(".filter-layer");
+const galleryBtn = document.querySelector(".fa-photo-film");
+const uid = new ShortUniqueId();
 let filterColor = "transparent";
 let mediaRecorder;
+let transaction;
 
 // This will store the video recording stream.
 let chunks = [];
@@ -32,11 +34,27 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
         let videoURL = URL.createObjectURL(blob);
         console.log(videoURL);
         // Getting recorded video.
-        let a = document.createElement("a");
-        a.href = videoURL;
-        a.download = "myVideo.mp4";
-        a.click();
-
+        // let a = document.createElement("a");
+        // a.href = videoURL;
+        // a.download = "myVideo.mp4";
+        // a.click();
+        if(db) {
+            console.log("working. . .");
+            let videoID = uid();
+            transaction = db.transaction("video", "readwrite");
+            let videoStore = transaction.objectStore("video");
+            let videoEntry = {
+                id: videoID,
+                blobData: blob
+            }
+            let addRequest = videoStore.add(videoEntry);
+            addRequest.onsuccess = function() {
+                console.log("Video entry added to the video store!", addRequest.result);
+            }
+            addRequest.onerror = function() {
+                console.log("Video entry NOT added to the video store!", addRequest.error);
+            }
+        }
     })
 })
 
@@ -97,11 +115,28 @@ captureBtn.addEventListener("click", function() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Auto Download the image.
-        let image = canvas.toDataURL("image/jpeg");
-        let a = document.createElement("a");
-        a.href = image;
-        a.download = "myPic.jpeg"
-        a.click();
+        let imageURL = canvas.toDataURL("image/jpeg");
+        // let a = document.createElement("a");
+        // a.href = imageURL;
+        // a.download = "myPic.jpeg"
+        // a.click();
+        if(db) {
+            console.log("working. . .");
+            let imageID = uid();
+            transaction = db.transaction("image", "readwrite");
+            let imageStore = transaction.objectStore("image");
+            let imageEntry = {
+                id: imageID,
+                url: imageURL
+            }
+            let addRequest = imageStore.add(imageEntry);
+            addRequest.onsuccess = function() {
+                console.log("Image entry added to the image store!", addRequest.result);
+            }
+            addRequest.onerror = function() {
+                console.log("Image entry NOT added to the video store!", addRequest.error);
+            }
+        }
 
         setTimeout(() => {
             captureBtn.classList.remove("scale-capture");

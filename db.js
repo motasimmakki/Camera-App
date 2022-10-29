@@ -1,6 +1,6 @@
 let openRequest = indexedDB.open("myDatabase");
 let db;
-openRequest.addEventListener("", function() {
+openRequest.addEventListener("success", function() {
     console.log("Connection Successful!");
     db = openRequest.result;
 });
