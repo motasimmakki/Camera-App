@@ -30,3 +30,30 @@ h1 {
     height: 100vh;
     background-color: lightcyan;
 }
+.media-cont {
+    width: 15rem;
+    height: 15rem;
+    margin: 2rem;
+    background-color: aqua;
+    border: 2px solid white;
+}
+.media {
+    height: calc(100% - 2rem -2rem);
+    background-color: olivedrab;
+}
+.action-btn {
+    height: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.action-btn:hover {
+    cursor: pointer;
+}
+.delete {
+    background-color: red;
+}
+.download {
+    background-color: black;
+}
