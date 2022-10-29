@@ -6,6 +6,7 @@ let video = document.querySelector(".camera-view");
 let filterLayer = document.querySelector(".filter-layer");
 let allFilters = document.querySelectorAll(".filter");
 let filterCont = document.querySelector(".filter-layer");
+let galleryBtn = document.querySelector(".fa-photo-film");
 let filterColor = "transparent";
 let mediaRecorder;
 
@@ -116,4 +117,8 @@ allFilters.forEach((currFilter) => {
         filterLayer.style.backgroundColor = filterColor;
         currFilter.style.border = "2px solid red";
     });
+})
+
+galleryBtn.addEventListener("click", function() {
+    location.assign("./gallery.html");
 })
