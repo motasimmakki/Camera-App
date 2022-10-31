@@ -12,7 +12,7 @@ h1 {
 .back {
     width: 5rem;
     height: 5rem;
-    background-color: black;
+    background-color: red;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -28,18 +28,26 @@ h1 {
 .gallery-cont {
     width: 100%;
     height: 100vh;
-    background-color: lightcyan;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: left;
 }
 .media-cont {
     width: 15rem;
     height: 15rem;
     margin: 2rem;
-    background-color: aqua;
     border: 2px solid white;
 }
 .media {
-    height: calc(100% - 2rem -2rem);
+    width: 100%;
+    height: calc(100% - 2rem - 2rem);
+    /* aspect-ratio: 4 / 3; */
     background-color: olivedrab;
+}
+.media>* {
+    width: 100%;
+    height: 100%;
 }
 .action-btn {
     height: 2rem;
