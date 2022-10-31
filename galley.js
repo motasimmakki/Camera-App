@@ -14,7 +14,7 @@ setTimeout(() => {
                 // imageRequest.result -> returns the objects of all images in an array.
                 console.log("Images", imageRequest.result);
                 let imageResult = imageRequest.result;
-                let galleryCont = document.querySelector(".gallery-cont");
+                let galleryCont = document.querySelector(".media-cont-box");
                 imageResult.forEach((imageObj) => {
                     let url = imageObj.url;
                     // Create a image container.

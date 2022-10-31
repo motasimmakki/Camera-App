@@ -27,11 +27,17 @@ h1 {
 }
 .gallery-cont {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 1rem;
     background-color: black;
     color: white;
+}
+.media-cont-box {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: left;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .media-cont {
     width: 15rem;
