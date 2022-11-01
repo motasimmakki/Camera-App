@@ -44,7 +44,7 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
             transaction = db.transaction("video", "readwrite");
             let videoStore = transaction.objectStore("video");
             let videoEntry = {
-                id: videoID,
+                id: `vid-${videoID}`,
                 blobData: blob
             }
             let addRequest = videoStore.add(videoEntry);
@@ -126,7 +126,7 @@ captureBtn.addEventListener("click", function() {
             transaction = db.transaction("image", "readwrite");
             let imageStore = transaction.objectStore("image");
             let imageEntry = {
-                id: imageID,
+                id: `img-${imageID}`,
                 url: imageURL
             }
             let addRequest = imageStore.add(imageEntry);
