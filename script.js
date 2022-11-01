@@ -23,6 +23,7 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     filterCont.style.aspectRatio = stream.getVideoTracks()[0].getSettings().aspectRatio;
     mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.addEventListener("start", () => {
+        chunks = [];
         // console.log("Start Recording. . .");
     })
     mediaRecorder.addEventListener("dataavailable", (event) => {
