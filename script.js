@@ -61,6 +61,8 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
 
 let isRecording = false;
 recordBtn.addEventListener("click", function() {
+    var audio = new Audio("./sounds/record.mp3");
+    audio.play();
     if(!isRecording) {
         mediaRecorder.start();
         recordBtn.classList.add("scale-record");
@@ -103,6 +105,8 @@ function stopTimer() {
 }
 
 captureBtn.addEventListener("click", function() {
+    var audio = new Audio("./sounds/capture.mp3");
+    audio.play();
     if(!isRecording) {
         captureBtn.classList.add("scale-capture");
         // Capturing image using canvas.
