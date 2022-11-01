@@ -110,14 +110,16 @@ function downloadListener(event) {
         let imageURL = event.target.parentElement.querySelector("img").getAttribute("src");
         let a = document.createElement("a");
         a.href = imageURL;
-        a.download = `img-${id}.png`;
+        a.download = `${id}.png`;
         a.click();
+        a.remove();
     } else { // Video
         // Get url from video.
         let videoURL = event.target.parentElement.querySelector("video").getAttribute("src");
         let a = document.createElement("a");
         a.href = videoURL;
-        a.download = `vid-${id}.mp4`;
+        a.download = `${id}.mp4`;
         a.click();
+        a.remove();
     }
 }
