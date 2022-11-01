@@ -106,17 +106,18 @@ function downloadListener(event) {
     // Go into the db of video/image.
     // Download it.
     if(mediaType == "img") {
-        // Get url from image/video.
+        // Get url from video.
         let imageURL = event.target.parentElement.querySelector("img").getAttribute("src");
         let a = document.createElement("a");
         a.href = imageURL;
-        a.download = "capture.jpeg"
+        a.download = `img-${id}.png`;
         a.click();
     } else { // Video
+        // Get url from video.
         let videoURL = event.target.parentElement.querySelector("video").getAttribute("src");
         let a = document.createElement("a");
         a.href = videoURL;
-        a.download = "record.mp4";
+        a.download = `vid-${id}.mp4`;
         a.click();
     }
 }
