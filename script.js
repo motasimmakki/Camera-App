@@ -23,23 +23,23 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     filterCont.style.aspectRatio = stream.getVideoTracks()[0].getSettings().aspectRatio;
     mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.addEventListener("start", () => {
-        console.log("Start Recording. . .");
+        // console.log("Start Recording. . .");
     })
     mediaRecorder.addEventListener("dataavailable", (event) => {
         chunks.push(event.data);
     })
     mediaRecorder.addEventListener("stop", () => {
-        console.log("Stopped Recording!");
+        // console.log("Stopped Recording!");
         let blob = new Blob(chunks, {type: "video/mp4"});
         let videoURL = URL.createObjectURL(blob);
-        console.log(videoURL);
+        // console.log(videoURL);
         // Getting recorded video.
         // let a = document.createElement("a");
         // a.href = videoURL;
         // a.download = "myVideo.mp4";
         // a.click();
         if(db) {
-            console.log("working. . .");
+            // console.log("working. . .");
             let videoID = uid();
             transaction = db.transaction("video", "readwrite");
             let videoStore = transaction.objectStore("video");
@@ -49,10 +49,10 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
             }
             let addRequest = videoStore.add(videoEntry);
             addRequest.onsuccess = function() {
-                console.log("Video entry added to the video store!", addRequest.result);
+                // console.log("Video entry added to the video store!", addRequest.result);
             }
             addRequest.onerror = function() {
-                console.log("Video entry NOT added to the video store!", addRequest.error);
+                // console.log("Video entry NOT added to the video store!", addRequest.error);
             }
         }
     })
@@ -121,7 +121,7 @@ captureBtn.addEventListener("click", function() {
         // a.download = "myPic.jpeg"
         // a.click();
         if(db) {
-            console.log("working. . .");
+            // console.log("working. . .");
             let imageID = uid();
             transaction = db.transaction("image", "readwrite");
             let imageStore = transaction.objectStore("image");
@@ -131,10 +131,10 @@ captureBtn.addEventListener("click", function() {
             }
             let addRequest = imageStore.add(imageEntry);
             addRequest.onsuccess = function() {
-                console.log("Image entry added to the image store!", addRequest.result);
+                // console.log("Image entry added to the image store!", addRequest.result);
             }
             addRequest.onerror = function() {
-                console.log("Image entry NOT added to the video store!", addRequest.error);
+                // console.log("Image entry NOT added to the video store!", addRequest.error);
             }
         }
 

@@ -39,7 +39,7 @@ setTimeout(() => {
                     downloadBtn.addEventListener("click", downloadListener);
                 });
             } else {
-                console.log("No Image Found!");
+                // console.log("No Image Found!");
             }
         }
 
@@ -71,7 +71,7 @@ setTimeout(() => {
                     downloadBtn.addEventListener("click", downloadListener);
                 })
             } else {
-                console.log("No Video Found!");
+                // console.log("No Video Found!");
             }
         }
     }
